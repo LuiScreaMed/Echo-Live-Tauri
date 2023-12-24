@@ -2,13 +2,27 @@
   "build": {
     "beforeDevCommand": "",
     "beforeBuildCommand": "",
-    "devPath": "../src",
-    "distDir": "../src",
+    "devPath": [
+      "../src/editor.html",
+      "../src/res/style/fh-ui.css",
+      "../src/res/style/editor.css",
+      "../src/lib/jquery-1.7.2.min.js",
+      "../src/res/class/EditorConstructor.js",
+      "../src/res/script/editor.js"
+    ],
+    "distDir": [
+      "../src/editor.html",
+      "../src/res/style/fh-ui.css",
+      "../src/res/style/editor.css",
+      "../src/lib/jquery-1.7.2.min.js",
+      "../src/res/class/EditorConstructor.js",
+      "../src/res/script/editor.js"
+    ],
     "withGlobalTauri": true
   },
   "package": {
-    "productName": "echo-live-tauri",
-    "version": "0.0.0"
+    "productName": "Echo Live",
+    "version": "0.0.1"
   },
   "tauri": {
     "allowlist": {
@@ -16,6 +30,9 @@
       "shell": {
         "all": false,
         "open": true
+      },
+      "fs": {
+        "scope": ["$RESOURCE/*"]
       }
     },
     "bundle": {
@@ -28,7 +45,26 @@
         "icons/128x128@2x.png",
         "icons/icon.icns",
         "icons/icon.ico"
-      ]
+      ],
+      "resources": {
+        "../src/live.html": "web/",
+        "../src/LICENSE": "web/",
+        "../src/README.md": "web/",
+        "../src/lib/jquery-1.7.2.min.js": "web/lib/",
+        "../src/res/class/Echo.js": "web/res/class/",
+        "../src/res/class/EchoLive.js": "web/res/class/",
+        "../src/res/class/Mixer.js": "web/res/class/",
+        "../src/res/script/sounds.js": "web/res/script/",
+        "../src/res/class/ExtensionManager.js": "web/res/class/",
+        "../src/extensions.js": "web/",
+        "../src/res/script/live-pre.js": "web/res/script/",
+        "../src/res/image/favicon.ico": "web/res/image/",
+        "../src/res/style/echo.css": "web/res/style/",
+        "../src/res/style/live-theme": "web/res/style/live-theme",
+        "../src/res/script/live.js": "web/res/script/",
+        "../src/res/audio": "web/res/audio/",
+        "config.json": "./"
+      }
     },
     "security": {
       "csp": null
@@ -36,10 +72,11 @@
     "windows": [
       {
         "fullscreen": false,
-        "resizable": true,
-        "title": "echo-live-tauri",
-        "width": 800,
-        "height": 600
+        "resizable": false,
+        "title": "Echo Live",
+        "width": 520,
+        "height": 400,
+        "url": "editor.html"
       }
     ]
   }
